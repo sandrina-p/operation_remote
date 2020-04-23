@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Router, { withRouter } from 'next/router'
 import { EmployeesContext } from '../store/employees-context'
 import Header from '../components/header'
@@ -37,6 +38,9 @@ const EmployeeForm = ({ uid }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Head>
+        <title>{uid ? `Edit employee: ${data.name}` : 'Create employee'}</title>
+      </Head>
       <div>
         <h1>{hasData ? 'Edit employee' : 'Add a new employee'}</h1>
         <p>

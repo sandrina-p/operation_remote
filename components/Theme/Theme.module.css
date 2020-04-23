@@ -1,0 +1,62 @@
+/* Utils */
+
+.u_layout {
+  max-width: calc(100% - 3.2rem);
+  width: 107.8rem;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+.t_3xl {
+  font-size: 2.6rem; /* ex: people */
+  font-weight: 500;
+}
+
+.t_2xl {
+  font-size: 2.2rem; /* ex: add employer */
+  font-weight: 500;
+}
+
+.t_1xl {
+  font-size: 2rem; /* ex: input labels */
+  font-weight: 500;
+}
+
+.t_lg {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.t_bold {
+  font-weight: 500;
+}
+
+.t_sm {
+  font-size: 1.4rem;
+}
+
+.t_tiny {
+  font-size: 1.3rem;
+}
+
+.t_capsTiny {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--text_1);
+}
+
+/* Text Colors */
+
+.c_txt_1 {
+  color: var(--text_1);
+}
+
+.c_success {
+  color: var(--success); /* Personal touch */
+}
+
+.c_error {
+  color: var(--danger); /* Personal touch */
+}

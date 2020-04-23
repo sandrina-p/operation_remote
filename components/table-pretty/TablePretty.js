@@ -1,29 +1,51 @@
-const TablePretty = ({ children }) => {
-  return <table>{children}</table>
+import React from 'react'
+import cx from 'classnames'
+
+import Theme from '../Theme'
+import Styles from './TablePretty.module.css'
+
+// Making a pretty table respecting the native HTML table is always a challenge
+
+const TablePretty = ({ children, className, ...otherProps }) => {
+  return (
+    <table className={cx(Styles.table, className)} {...otherProps}>
+      {children}
+    </table>
+  )
 }
 
-const Head = ({ data }) => {
+const Head = ({ data, ...otherProps }) => {
   return (
-    <thead>
+    <thead className={Styles.head} {...otherProps}>
       <tr>
         {data.map((text, i) => (
-          <th key={i}>{text}</th>
+          <th className={Theme.t_capsTiny} key={i}>
+            {text}
+          </th>
         ))}
       </tr>
     </thead>
   )
 }
 
-const Body = ({ children }) => {
-  return <tbody>{children}</tbody>
+const Body = ({ children, ...otherProps }) => {
+  return <tbody {...otherProps}>{children}</tbody>
 }
 
-const Row = ({ children }) => {
-  return <tr>{children}</tr>
+const Row = ({ children, ...otherProps }) => {
+  return (
+    <tr className={Styles.row} {...otherProps}>
+      {children}
+    </tr>
+  )
 }
 
-const RowCell = ({ children }) => {
-  return <td>{children}</td>
+const RowCell = ({ children, ...otherProps }) => {
+  return (
+    <td className={Styles.rowCell} {...otherProps}>
+      <div className={Styles.rowCell_inner}>{children}</div>
+    </td>
+  )
 }
 
 TablePretty.Head = Head

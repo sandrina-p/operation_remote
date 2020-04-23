@@ -1,0 +1,45 @@
+.btn {
+  min-height: 4.4rem;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid;
+  text-align: center;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 4.4rem;
+  min-width: 14rem;
+}
+
+.solid.primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg_1);
+  box-shadow: 0 0.6rem 1.2rem rgba(98, 77, 227, 0.3);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:focus {
+    outline: none;
+    /* Personal touch */
+    box-shadow: white 0 0 0 0.3rem, rgba(98, 77, 227, 0.8) 0 0 0 0.4rem;
+  }
+}
+
+.outline.primary {
+  background-color: transparent;
+  border-color: rgba(98, 77, 227, 0.3);
+  color: var(--primary);
+
+  &:hover {
+    background-color: rgba(98, 77, 227, 0.1);
+  }
+
+  &:focus {
+    outline: none;
+    /* Personal touch */
+    box-shadow: white 0 0 0 0.3rem, rgba(98, 77, 227, 0.5) 0 0 0 0.4rem;
+  }
+}

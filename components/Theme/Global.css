@@ -1,0 +1,44 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* REVIEW w/designer. Too many greys around? */
+
+  --bg_0: #fff;
+  --bg_1: #f4f7fc;
+  --text_0: #00234b;
+  --text_1: #778ca3; /* most secondary texts */
+  --text_2: #525f7f; /* 60000 USD */
+  --text_rgb_0: 0, 35, 75; /* fields hints */
+
+  --primary: #624de3;
+  --secondary: #ffe8df;
+
+  --grey_0: #ced5db; /* lines */
+
+  /* Spacers */
+  /* Note: not sure. saw, 4, 8, 10, 26, 32, maybe   */
+
+  /* Personal touch for form messages. */
+  --success: #308230;
+  --danger: #9b4646;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: var(--bg_1);
+
+  * {
+    box-sizing: inherit;
+  }
+}

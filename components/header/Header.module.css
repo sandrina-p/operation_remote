@@ -1,0 +1,31 @@
+.header {
+  padding: 2.2rem; /* Not sure */
+  background-color: var(--bg_0);
+}
+
+.inner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  &_txt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.2rem; /* 13px @REVIEW design */
+    line-height: 1.3;
+  }
+}
+
+.avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 3.6rem;
+  height: 3.6rem;
+  background-color: var(--secondary);
+}

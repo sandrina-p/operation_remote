@@ -1,24 +1,34 @@
+import React from 'react'
+import cx from 'classnames'
+
+import Theme from '../Theme'
+import Styles from './Header.module.css'
+
 const Header = () => {
   // NOTE: IRL this could be a React.useContext(MyProfile).
   const user = { name: 'Julie Howard', role: 'Admin', picUrl: null }
 
   return (
-    <header>
-      <div>
-        <Avatar src={user.picUrl} />
-        <div>
-          <div>{user.name}</div>
-          <div>{user.role}</div>
+    <header className={Styles.header}>
+      <div className={cx(Theme.u_layout, Styles.inner)}>
+        <div className={Styles.profile}>
+          <Avatar src={user.picUrl} />
+          <div className={Styles.profile_txt}>
+            <span className={Theme.t_bold}>{user.name}</span>
+            <span className={cx(Theme.c_txt_1, Theme.t_tiny)}>{user.role}</span>
+          </div>
         </div>
       </div>
     </header>
   )
 }
 
-// IRL this would be its own file but for now, it's okay here.
-
-const Avatar = src => {
-  return <span>[]</span>
+// NOTE: this could be its own file, but for now it's okay here.
+const Avatar = ({ src }) => {
+  if (src) {
+    return <img src={src} className={Styles.avatar} alt=""></img>
+  }
+  return <span className={Styles.avatar} />
 }
 
 export default React.memo(Header)

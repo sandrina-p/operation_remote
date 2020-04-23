@@ -1,0 +1,50 @@
+.header {
+  padding: 4rem 0.8rem 4rem 0; /* REVIEW 0.8 with designer */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_txt {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &_count {
+    display: block;
+    margin-left: 0.8rem;
+  }
+}
+
+.table {
+  color: var(--text_2);
+  margin: 1.6rem 0 4rem;
+
+  /* 🙈 The worst part of this challenge */
+  thead th:last-child {
+    opacity: 0;
+  }
+
+  tbody tr:first-child td > * {
+    margin-top: 1rem;
+  }
+
+  /* REVIEW with designer */
+  tbody td:nth-child(1),
+  tbody td:nth-child(2) {
+    width: 25%;
+  }
+
+  tbody td:nth-child(3),
+  tbody td:nth-child(4),
+  tbody td:nth-child(5) {
+    width: 16.66%;
+  }
+
+  &_price {
+    white-space: nowrap;
+  }
+
+  &_name {
+    color: var(--text_0);
+  }
+}

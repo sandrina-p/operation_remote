@@ -1,0 +1,35 @@
+.table {
+  width: 100%;
+}
+
+.head {
+  text-align: left;
+}
+
+.rowCell {
+  vertical-align: top;
+
+  &:first-child {
+    .rowCell_inner {
+      padding-left: 1.6rem;
+      border-radius: 1rem 0 0 1rem;
+    }
+  }
+
+  &:last-child {
+    .rowCell_inner {
+      padding-right: 1.6rem;
+      border-radius: 0 1rem 1rem 0;
+    }
+  }
+
+  &_inner {
+    display: flex;
+    align-items: center;
+    min-height: 11.5rem; /* REVIEW - hardcoded for two lines. needs better solution */
+    background: white;
+    padding: 3.2rem 0;
+    margin: 0.5rem 0;
+    /* TODO the box shadow. An interesting CSS challenge but not for now. ⏳ */
+  }
+}
