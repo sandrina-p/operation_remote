@@ -58,10 +58,13 @@ const EmployeeForm = ({ uid, data }) => {
     <Form onSubmit={handleSubmit} className={cx(Theme.u_layout, Styles.form)}>
       <Form.Header>
         <div>
-          <h1 className={Theme.t_2xl}>
+          <h1 className={Theme.t_2xl} data-test="title">
             {hasData ? 'Edit employee' : 'Add a new employee'}
           </h1>
-          <p className={cx(Theme.t_sm, Styles.form_description)}>
+          <p
+            className={cx(Theme.t_sm, Styles.form_description)}
+            data-test="description"
+          >
             {hasData
               ? 'Edit the information of your employee.'
               : 'Fill out the information of your new employee.'}

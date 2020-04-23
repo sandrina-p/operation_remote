@@ -41,7 +41,10 @@ export const EmployeesProvider = ({ children }) => {
 
     setEmployees(emp => ({
       ...emp,
-      [uid]: data,
+      [uid]: {
+        ...data,
+        currency: 'USD', // Add this field on form? Review w/designer
+      },
     }))
   }
 }

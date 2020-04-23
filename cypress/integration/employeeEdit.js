@@ -2,14 +2,16 @@ describe('Employee: Edit', () => {
   it('opens the page with employee query', () => {
     cy.visit('/employee?uid=123')
 
-    cy.get('h1').should('contain', 'Edit employee')
+    cy.getDT('title', 'h1').should('contain', 'Edit employee')
+    cy.getDT('description', 'p').should(
+      'contain',
+      'Edit the information of your employee.'
+    )
   })
 
   it.skip('shows the necessary error, on form submit with invalid fields', () => {})
 
   it('updates the employee data, on a valid form submit', () => {
-    cy.get('h1').should('contain', 'Edit employee')
-
     cy.get('input[name="grossSalary"]').clear().type('65000')
 
     cy.getDT('formFooter').find('button[type="submit"]').click()
