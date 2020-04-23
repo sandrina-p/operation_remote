@@ -1,5 +1,5 @@
 {
-  "name": "experiment_ui",
+  "name": "operation_remote",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,5 +11,15 @@
     "next": "9.3.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.19.0",
+    "postcss-calc": "^7.0.2",
+    "postcss-nested": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5"
   }
 }
