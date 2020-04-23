@@ -77,7 +77,7 @@ export default function People() {
   )
 }
 
-// NOTE 1: I didn't have access to the original icon, so I improvised.
+// NOTE: I didn't have access to the original icon, so I improvised.
 const IconUser = props => (
   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" {...props}>
     <path

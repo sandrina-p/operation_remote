@@ -1,4 +1,6 @@
-/* Utils */
+/* ------- utils
+  It could be a component <Layout />
+*/
 
 .u_layout {
   max-width: calc(100% - 3.2rem);
@@ -6,7 +8,8 @@
   margin: 0 auto;
 }
 
-/* Typography - TODO could be mixins or components too. */
+/* ------- Typography 
+Note: could be mixins or components too. */
 
 .t_3xl {
   font-size: 2.6rem; /* ex: people */

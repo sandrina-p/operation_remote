@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.4rem; /* REVIEW w/designer. Buttons are not all the same. 45, 40, etc... */
+  /* REVIEW w/designer. Buttons have slightly different heights across the app. 45, 40, etc... */
+  min-height: 4.4rem;
   padding: 0.8rem 2.4rem;
-  border: 2px solid;
+  border: 0.2rem solid;
   text-align: center;
   font-size: inherit;
   font-weight: 500;
@@ -22,13 +23,13 @@
   box-shadow: 0 0.6rem 1.2rem rgba(98, 77, 227, 0.3);
   transition: opacity 250ms;
 
+  /* Personal touch */
   &:hover {
     opacity: 0.9;
   }
 
   &:focus {
     outline: none;
-    /* Personal touch */
     box-shadow: white 0 0 0 0.3rem, rgba(98, 77, 227, 0.8) 0 0 0 0.4rem;
   }
 }
@@ -38,6 +39,7 @@
   border-color: rgba(98, 77, 227, 0.3);
   color: var(--primary);
 
+  /* Personal touch */
   &:hover {
     background-color: rgba(98, 77, 227, 0.1);
   }

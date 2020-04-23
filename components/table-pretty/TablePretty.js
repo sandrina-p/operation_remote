@@ -4,16 +4,20 @@ import cx from 'classnames'
 import Theme from '../Theme'
 import Styles from './TablePretty.module.css'
 
-/*  Making a pretty table respecting the native HTML table is always a challenge.
+/* 
+NOTE:
+Making a pretty table respecting the native HTML table is always a challenge.
 
-The first thought usually is to do this with ul > li because of simplicity.
-Or, with a table, overwrite its display CSS property to use flex,
+The first thought usually is to do this with ul > li because of simplicity,
+but that wouldn't be accessible for users using Assistive Technologies (ex: Screen Readers).
+
+Or, if using a table, overwrite its display CSS property to use flex,
 but that would defeat the whole purpose of having an accessible table
 for keyboard and screen reader users.
 
 I gave my best given the available time.
-
 */
+
 const TablePretty = ({ children, className, ...otherProps }) => {
   return (
     <table className={cx(Styles.table, className)} {...otherProps}>

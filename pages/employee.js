@@ -234,7 +234,9 @@ const EmployeeForm = ({ uid, data }) => {
 }
 
 EmployeeForm.prototypes = {
-  data: PropTypes.objectOf({}),
+  data: PropTypes.objectOf({
+    // TODO this...
+  }),
 }
 
 export default withRouter(Employee)

@@ -7,6 +7,12 @@
 - [Git 2.x](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
 
+## Project stack
+
+- Development: [NextJS](https://nextjs.org/) + [PostCSS]
+- Testing:
+  - E2E: [Cypress](https://www.cypress.io/)
+
 ### Setup
 
 ```bash
@@ -31,10 +37,5 @@ npm run cy:open # or "yarn cy:open"
 
 ### Notes
 
-I left multiples comments around with questions, notes, TODOS, etc... I hope it helps you to better understand the decisions taken.
-
-## Project stack
-
-- Development: [NextJS](https://nextjs.org/) + [PostCSS]
-- Testing:
-  - E2E only: [Cypress](https://www.cypress.io/)
+I left multiples code comments with questions, notes, todos, etc...
+As you read, I hope it helps you to better understand the decisions I took.

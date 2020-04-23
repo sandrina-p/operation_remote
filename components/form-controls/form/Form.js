@@ -4,8 +4,6 @@ import cx from 'classnames'
 import Theme from '../../Theme'
 import Styles from './Form.module.css'
 
-// Making a pretty table respecting the native HTML table is always a challenge
-
 const Form = ({ children, className, ...otherProps }) => {
   return (
     <form className={cx(Styles.form, className)} {...otherProps}>
