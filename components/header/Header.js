@@ -17,7 +17,9 @@ const Header = () => {
             <Avatar src={user.picUrl} />
             <div className={Styles.profile_txt}>
               <span className={Theme.t_bold}>{user.name}</span>
-              <span className={cx(Theme.t_tiny, Theme.t_bold)}>{user.role}</span>
+              <span className={cx(Theme.t_tiny, Theme.t_bold)}>
+                {user.role}
+              </span>
             </div>
           </a>
         </Link>

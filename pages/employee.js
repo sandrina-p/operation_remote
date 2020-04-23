@@ -57,7 +57,9 @@ const EmployeeForm = ({ uid, data }) => {
     <Form onSubmit={handleSubmit} className={cx(Theme.u_layout, Styles.form)}>
       <Form.Header>
         <div>
-          <h1 className={Theme.t_2xl}>{hasData ? 'Edit employee' : 'Add a new employee'}</h1>
+          <h1 className={Theme.t_2xl}>
+            {hasData ? 'Edit employee' : 'Add a new employee'}
+          </h1>
           <p className={cx(Theme.t_sm, Styles.form_description)}>
             {hasData
               ? 'Fill out the information of your new employee.'
@@ -129,7 +131,10 @@ const EmployeeForm = ({ uid, data }) => {
       </Form.Body>
       <Form.Footer>
         {formMsg.msg && (
-          <p aria-live="polite" className={cx(Styles.form_msg, Styles[formMsg.type])}>
+          <p
+            aria-live="polite"
+            className={cx(Styles.form_msg, Styles[formMsg.type])}
+          >
             {formMsg.msg}
           </p>
         )}
@@ -218,7 +223,10 @@ const EmployeeForm = ({ uid, data }) => {
     setFormMsg({})
 
     if (!validateForm(hasData ? newData : null)) {
-      setFormMsg({ type: 'error', msg: 'Ups! Some fields are invalid, please verify them.' })
+      setFormMsg({
+        type: 'error',
+        msg: 'Ups! Some fields are invalid, please verify them.',
+      })
       return
     }
 
@@ -229,7 +237,10 @@ const EmployeeForm = ({ uid, data }) => {
     }
 
     // Should we hide/update the buttons? Review w/designer
-    setFormMsg({ type: 'success', msg: hasData ? 'Changes saved!' : 'Employee added!' })
+    setFormMsg({
+      type: 'success',
+      msg: hasData ? 'Changes saved!' : 'Employee added!',
+    })
   }
 }
 
