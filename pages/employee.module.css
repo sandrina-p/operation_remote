@@ -6,10 +6,11 @@
     margin-top: 0.4rem;
   }
 
+  /* This could be FormMsg */
   &_msg {
     width: 100%;
     text-emphasis: center;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
 
     &.error {
       color: var(--danger);

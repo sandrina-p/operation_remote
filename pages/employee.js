@@ -222,6 +222,8 @@ const EmployeeForm = ({ uid, data }) => {
     }
 
     if (Object.keys(errors).length > 0) {
+      // TODO - Add keyup/change listener to each input, to remove
+      // the inline error immediately after its gets valid.
       setInlineErrors(errors)
       return false
     }

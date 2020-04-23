@@ -33,8 +33,6 @@ npm run dev # or "yarn dev"
 
 ### Run E2E tests
 
-Most of tests are only pseudo code.
-
 ```bash
 npm run cy:open # or "yarn cy:open"
 ```

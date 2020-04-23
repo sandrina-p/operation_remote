@@ -10,7 +10,7 @@ const Header = () => {
   const user = { name: 'Julie Howard', role: 'Admin', picUrl: null }
 
   return (
-    <header className={Styles.header}>
+    <header className={Styles.header} role="banner">
       <div className={cx(Theme.u_layout, Styles.inner)}>
         <Link href="#dumb-profile">
           <a className={Styles.profile}>

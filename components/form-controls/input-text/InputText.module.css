@@ -12,7 +12,9 @@
 
   &:hover,
   &:focus {
+    outline: none;
     border-width: 0.15rem;
+    margin-top: -0.05rem; /* to makeup the larger border-width */
     border-color: var(--primary);
   }
 }
