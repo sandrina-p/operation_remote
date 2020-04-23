@@ -4,6 +4,8 @@
 
 ### Requirements
 
+You need to have installed the following tools:
+
 - [Git 2.x](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
 
@@ -18,6 +20,8 @@
 ```bash
 # clone the project
 git clone https://github.com/sandrina-p/operation_remote.git
+
+# go to the project folder
 cd operation_remote
 
 # install dependencies

@@ -4,8 +4,8 @@ import Header from '../components/header'
 
 import { EmployeesProvider } from '../store/employees-context'
 
-import StylesReset from '../components/Theme/Reset.css'
-import StylesGlobal from '../components/Theme/Global.css'
+import StylesReset from '../components/theme/Reset.css'
+import StylesGlobal from '../components/theme/Global.css'
 
 const TheApp = ({ Component, pageProps }) => {
   return (

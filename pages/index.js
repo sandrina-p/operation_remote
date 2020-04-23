@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { EmployeesContext } from '../store/employees-context'
 import countries from '../data/countries'
 
-import Theme from '../components/Theme'
+import Theme from '../components/theme'
 import Button from '../components/button'
 import Header from '../components/header'
 import TablePretty from '../components/table-pretty'

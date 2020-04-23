@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import { EmployeesContext } from '../store/employees-context'
 
-import Theme from '../components/Theme'
+import Theme from '../components/theme'
 import Header from '../components/header'
 import Button from '../components/button'
 import { Form, InputText, Select } from '../components/form-controls'

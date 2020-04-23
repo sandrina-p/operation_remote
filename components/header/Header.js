@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import Link from 'next/link'
 
-import Theme from '../Theme'
+import Theme from '../theme'
 import Styles from './Header.module.css'
 
 const Header = () => {

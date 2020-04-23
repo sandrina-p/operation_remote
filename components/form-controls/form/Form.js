@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import Theme from '../../Theme'
+import Theme from '../../theme'
 import Styles from './Form.module.css'
 
 const Form = ({ children, className, ...otherProps }) => {
