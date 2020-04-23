@@ -73,6 +73,7 @@ const EmployeeForm = ({ uid, data }) => {
           error={inlineErrors.name}
           placeholder="e.g. Jane Doe"
           defaultValue={data.name}
+          aria-required="true"
           onChange={e => handleUpdate('name', e.target.value)}
         />
 
@@ -84,6 +85,7 @@ const EmployeeForm = ({ uid, data }) => {
           placeholder="e.g. 17/02/1990"
           pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
           defaultValue={data.birthdate}
+          aria-required="true"
           onChange={e => handleUpdate('birthdate', e.target.value)}
         />
 
@@ -94,6 +96,7 @@ const EmployeeForm = ({ uid, data }) => {
           error={inlineErrors.jobTitle}
           placeholder="e.g. Product manger"
           defaultValue={data.jobTitle}
+          aria-required="true"
           onChange={e => handleUpdate('jobTitle', e.target.value)}
         />
 
@@ -103,6 +106,7 @@ const EmployeeForm = ({ uid, data }) => {
           hint="Where are they based?"
           error={inlineErrors.country}
           defaultValue="US"
+          aria-required="true"
           onChange={e => handleUpdate('country', e.target.value)}
         >
           <option value="IS">Iceland</option>
@@ -119,6 +123,7 @@ const EmployeeForm = ({ uid, data }) => {
           defaultValue={data.grossSalary}
           inputMode="numeric"
           pattern="[0-9]*"
+          aria-required="true"
           onChange={e => handleUpdate('grossSalary', e.target.value)}
         />
       </Form.Body>
@@ -194,6 +199,7 @@ const EmployeeForm = ({ uid, data }) => {
       const value = mapFields[name].el.current.value
       const pattern = mapFields[name].validator.pattern
       if (!pattern(value)) {
+        // TODO add aria-invalid="true" to the element.
         errors[name] = mapFields[name].validator.msg
       }
     }

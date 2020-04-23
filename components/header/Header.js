@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className={Styles.header}>
       <div className={cx(Theme.u_layout, Styles.inner)}>
-        <Link href="#">
+        <Link href="#dumb-profile">
           <a className={Styles.profile}>
             <Avatar src={user.picUrl} />
             <div className={Styles.profile_txt}>

@@ -21,9 +21,17 @@ npm install # or "yarn"
 npm run dev # or "yarn dev"
 ```
 
+### Run E2E tests
+
+Most of tests are only pseudo code.
+
+```bash
+npm run cy:open # or "yarn cy:open"
+```
+
 ### Notes
 
-I left multiples comments around with questions, notes, TODOS, etc... I hope it helps you to understand better the decisions taken in this PR.
+I left multiples comments around with questions, notes, TODOS, etc... I hope it helps you to better understand the decisions taken.
 
 ## Project stack
 
