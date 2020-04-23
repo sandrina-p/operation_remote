@@ -52,7 +52,7 @@ const EmployeeForm = ({ uid, data }) => {
   const refCountry = React.useRef({})
   const refGrossSalary = React.useRef({})
 
-  const hasData = !!data
+  const hasData = !!uid
 
   return (
     <Form onSubmit={handleSubmit} className={cx(Theme.u_layout, Styles.form)}>
@@ -63,8 +63,8 @@ const EmployeeForm = ({ uid, data }) => {
           </h1>
           <p className={cx(Theme.t_sm, Styles.form_description)}>
             {hasData
-              ? 'Fill out the information of your new employee.'
-              : 'Edit the information of your employee.'}
+              ? 'Edit the information of your employee.'
+              : 'Fill out the information of your new employee.'}
           </p>
         </div>
       </Form.Header>
