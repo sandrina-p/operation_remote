@@ -4,7 +4,8 @@
 }
 
 :root {
-  /* REVIEW w/designer. Too many greys around? */
+  /* REVIEW w/designer. Too many greys around.
+  It's easy to miss use one of theme */
 
   --bg_0: #fff;
   --bg_1: #f4f7fc;
@@ -20,9 +21,9 @@
   --grey_1: #eaedf3; /* form header border line */
 
   /* Spacers */
-  /* Note: not sure. saw, 4, 8, 10, 26, 32, maybe   */
+  /* Note: not sure. I've seen 4, 8, 10, 20, 24,  26, 32...   */
 
-  /* Personal touch for form messages. */
+  /* Personal touch for form feedback messages */
   --success: #308230;
   --danger: #f44545;
 }

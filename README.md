@@ -21,9 +21,12 @@ npm install # or "yarn"
 npm run dev # or "yarn dev"
 ```
 
+### Notes
+
+I left multiples comments around with questions, notes, TODOS, etc... I hope it helps you to understand better the decisions taken in this PR.
+
 ## Project stack
 
 - Development: [NextJS](https://nextjs.org/) + [PostCSS]
 - Testing:
-  - Unit: [Jest](https://jestjs.io/)
-  - E2E: [Cypress](https://www.cypress.io/)
+  - E2E only: [Cypress](https://www.cypress.io/)

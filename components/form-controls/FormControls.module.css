@@ -6,10 +6,11 @@
 .label {
   display: block;
   font-size: 1.4rem;
+  color: var(--text_1);
 }
 
 .field:hover .label {
-  /* TODO - now the same as focus but... ⏳ */
+  /* TODO - not the same as focus but... ⏳ */
   color: var(--primary);
 }
 

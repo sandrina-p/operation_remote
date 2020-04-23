@@ -28,7 +28,7 @@
   &_txt {
     display: flex;
     flex-direction: column;
-    margin-left: 1.2rem; /* 13px @REVIEW design */
+    margin-left: 1.2rem; /* 13px @REVIEW w/designer */
     line-height: 1.3;
   }
 }

@@ -1,5 +1,5 @@
 .header {
-  padding: 4rem 0.8rem 4rem 0; /* REVIEW 0.8 with designer */
+  padding: 4rem 0.8rem 4rem 0; /* REVIEW 0.8 w/designer */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,16 +19,16 @@
   color: var(--text_2);
   margin: 1.6rem 0 4rem;
 
-  /* 🙈 The worst part of this challenge */
   thead th:last-child {
     opacity: 0;
   }
 
+  /* 🙈 The worst selector of this challenge */
   tbody tr:first-child td > * {
     margin-top: 1rem;
   }
 
-  /* REVIEW with designer */
+  /* REVIEW w/designer */
   tbody td:nth-child(1),
   tbody td:nth-child(2) {
     width: 25%;

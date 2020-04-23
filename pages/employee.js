@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import Router, { withRouter } from 'next/router'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import { EmployeesContext } from '../store/employees-context'
 
 import Theme from '../components/Theme'
@@ -13,23 +15,31 @@ import Styles from './employee.module.css'
 
 const Employee = ({ router }) => {
   const [uid, setUid] = React.useState(router.query.uid)
+  const { employees } = React.useContext(EmployeesContext)
 
   React.useEffect(() => {
     setUid(router.query.uid)
   }, [router.query.uid])
+
+  if (uid && !employees[uid]) {
+    // Employee does not exist. Go back to index.
+    // It can happen when refreshing the page with a new employee created.
+    Router.push('/')
+    return null
+  }
 
   return (
     <main>
       <Head>
         <title>{uid ? 'Edit Employee' : 'Add employee'}</title>
       </Head>
-      <EmployeeForm uid={uid} />
+      <EmployeeForm uid={uid} data={employees[uid] || {}} />
     </main>
   )
 }
 
-const EmployeeForm = ({ uid }) => {
-  const { employees, updateEmployee, addEmployee } = React.useContext(EmployeesContext)
+const EmployeeForm = ({ uid, data }) => {
+  const { updateEmployee, addEmployee } = React.useContext(EmployeesContext)
   const [newData, setNewData] = React.useState({})
   const [inlineErrors, setInlineErrors] = React.useState({})
   const [formMsg, setFormMsg] = React.useState({})
@@ -41,8 +51,7 @@ const EmployeeForm = ({ uid }) => {
   const refCountry = React.useRef({})
   const refGrossSalary = React.useRef({})
 
-  const hasData = !!uid
-  const data = hasData ? employees[uid] : {}
+  const hasData = !!data
 
   return (
     <Form onSubmit={handleSubmit} className={cx(Theme.u_layout, Styles.form)}>
@@ -69,10 +78,11 @@ const EmployeeForm = ({ uid }) => {
 
         <InputText
           ref={refBirthdate}
-          label="birthdate"
+          label="Birthdate"
           hint="DD/MM/YYYY"
           error={inlineErrors.birthdate}
           placeholder="e.g. 17/02/1990"
+          pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
           defaultValue={data.birthdate}
           onChange={e => handleUpdate('birthdate', e.target.value)}
         />
@@ -107,6 +117,8 @@ const EmployeeForm = ({ uid }) => {
           error={inlineErrors.grossSalary}
           placeholder=" e.g. 500000"
           defaultValue={data.grossSalary}
+          inputMode="numeric"
+          pattern="[0-9]*"
           onChange={e => handleUpdate('grossSalary', e.target.value)}
         />
       </Form.Body>
@@ -149,14 +161,14 @@ const EmployeeForm = ({ uid }) => {
       birthdate: {
         el: refBirthdate,
         validator: {
-          pattern: value => !!value, // TODO correct validator
+          pattern: value => !!value,
           msg: 'The birthdate is required.',
         },
       },
       jobTitle: {
         el: refJobTitle,
         validator: {
-          pattern: value => !!value, // TODO right validator
+          pattern: value => !!value,
           msg: 'The job title is required.',
         },
       },
@@ -199,20 +211,24 @@ const EmployeeForm = ({ uid }) => {
     setInlineErrors({})
     setFormMsg({})
 
-    if (!validateForm(uid ? newData : null)) {
+    if (!validateForm(hasData ? newData : null)) {
       setFormMsg({ type: 'error', msg: 'Ups! Some fields are invalid, please verify them.' })
       return
     }
 
-    if (uid) {
-      updateEmployee(uid, newData)
+    if (hasData) {
+      updateEmployee(hasData, newData)
     } else {
       addEmployee(newData)
     }
 
-    // Should we hide/update the buttons? Review/wdesigner
-    setFormMsg({ type: 'success', msg: uid ? 'Changes saved!' : 'Employee added!' })
+    // Should we hide/update the buttons? Review w/designer
+    setFormMsg({ type: 'success', msg: hasData ? 'Changes saved!' : 'Employee added!' })
   }
+}
+
+EmployeeForm.prototypes = {
+  data: PropTypes.objectOf({}),
 }
 
 export default withRouter(Employee)

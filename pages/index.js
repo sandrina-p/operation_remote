@@ -24,7 +24,7 @@ export default function People() {
         <header className={Styles.header}>
           <div className={Styles.header_txt}>
             <h1 className={Theme.t_3xl}>People</h1>
-            <p className={cx(Styles.header_count, Theme.t_tiny, Theme.t_bold, Theme.c_txt_1)}>
+            <p className={cx(Styles.header_count, Theme.t_tiny, Theme.t_bold)}>
               {emplKeys.length} {emplKeys.length === 1 ? 'employee' : 'employees'}
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function People() {
                   <div className={Styles.table_price}>
                     {/* TODO - format salary */}
                     <span>{employees[uid].grossSalary}</span> {employees[uid].currency}{' '}
-                    <span className={cx(Theme.t_tiny, Theme.c_txt_1)}>per year</span>
+                    <span className={Theme.t_tiny}>per year</span>
                   </div>
                 </TablePretty.RowCell>
 
