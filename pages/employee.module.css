@@ -1,0 +1,32 @@
+.form {
+  margin: 4rem auto;
+
+  &_description {
+    color: var(--text_2);
+    margin-top: 0.4rem;
+  }
+
+  &_msg {
+    width: 100%;
+    text-emphasis: center;
+    margin-bottom: 1.6rem;
+
+    &.error {
+      color: var(--danger);
+    }
+
+    &.success {
+      color: var(--success);
+    }
+  }
+}
+
+/* TODO It could be a <ButtonsGroup /> */
+.buttons {
+  width: 100%;
+
+  > * {
+    display: inline-block;
+    margin: 0 0.8rem;
+  }
+}

@@ -1,0 +1,25 @@
+.form {
+  background-color: var(--bg_0);
+  box-shadow: 0.6rem 0.6rem 5.4rem rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+.header {
+  padding: 3.4rem 3.6rem 3rem; /* REVIEW w/designer */
+  border-bottom: 0.1rem solid var(--grey_1);
+}
+
+.body {
+  margin: 4.8rem auto 5rem;
+  max-width: 100%;
+  width: 60rem; /* 599px design */
+}
+
+.footer {
+  background-color: var(--bg_1);
+  padding: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}

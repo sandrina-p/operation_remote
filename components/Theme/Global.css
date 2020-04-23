@@ -11,19 +11,20 @@
   --text_0: #00234b;
   --text_1: #778ca3; /* most secondary texts */
   --text_2: #525f7f; /* 60000 USD */
-  --text_rgb_0: 0, 35, 75; /* fields hints */
+  --text_0_rgba: rgba(0, 35, 75, 0.5); /* fields hints */
 
   --primary: #624de3;
   --secondary: #ffe8df;
 
-  --grey_0: #ced5db; /* lines */
+  --grey_0: #ced5db; /* input lines */
+  --grey_1: #eaedf3; /* form header border line */
 
   /* Spacers */
   /* Note: not sure. saw, 4, 8, 10, 26, 32, maybe   */
 
   /* Personal touch for form messages. */
   --success: #308230;
-  --danger: #9b4646;
+  --danger: #f44545;
 }
 
 html {

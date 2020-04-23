@@ -1,0 +1,26 @@
+.field {
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.label {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.field:hover .label {
+  /* TODO - now the same as focus but... ⏳ */
+  color: var(--primary);
+}
+
+.hint {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  color: var(--text_0_rgba);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 1.3rem;
+}

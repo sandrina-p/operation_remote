@@ -1,5 +1,5 @@
 .header {
-  padding: 2.2rem; /* Not sure */
+  padding: 1.6rem; /* Not sure */
   background-color: var(--bg_0);
 }
 
@@ -11,6 +11,19 @@
 .profile {
   display: flex;
   align-items: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  transition: box-shadow 250ms ease;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    /* Personal touch: */
+    box-shadow: 0 0 0.3rem var(--primary);
+  }
 
   &_txt {
     display: flex;

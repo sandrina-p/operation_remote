@@ -1,10 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
 import Router, { withRouter } from 'next/router'
+import cx from 'classnames'
 import { EmployeesContext } from '../store/employees-context'
+
+import Theme from '../components/Theme'
 import Header from '../components/header'
 import Button from '../components/button'
-import { InputText, Select } from '../components/form-controls'
+import { Form, InputText, Select } from '../components/form-controls'
+
+import Styles from './employee.module.css'
 
 const Employee = ({ router }) => {
   const [uid, setUid] = React.useState(router.query.uid)
@@ -15,6 +20,9 @@ const Employee = ({ router }) => {
 
   return (
     <main>
+      <Head>
+        <title>{uid ? 'Edit Employee' : 'Add employee'}</title>
+      </Head>
       <EmployeeForm uid={uid} />
     </main>
   )
@@ -26,7 +34,7 @@ const EmployeeForm = ({ uid }) => {
   const [inlineErrors, setInlineErrors] = React.useState({})
   const [formMsg, setFormMsg] = React.useState({})
 
-  // TODO validate this data.
+  // TODO DRY this with custom hook.
   const refName = React.useRef({})
   const refBirthdate = React.useRef({})
   const refJobTitle = React.useRef({})
@@ -37,19 +45,18 @@ const EmployeeForm = ({ uid }) => {
   const data = hasData ? employees[uid] : {}
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Head>
-        <title>{uid ? `Edit employee: ${data.name}` : 'Create employee'}</title>
-      </Head>
-      <div>
-        <h1>{hasData ? 'Edit employee' : 'Add a new employee'}</h1>
-        <p>
-          {hasData
-            ? 'Fill out the information of your new employee.'
-            : 'Edit the information of your employee.'}
-        </p>
-      </div>
-      <div>
+    <Form onSubmit={handleSubmit} className={cx(Theme.u_layout, Styles.form)}>
+      <Form.Header>
+        <div>
+          <h1 className={Theme.t_2xl}>{hasData ? 'Edit employee' : 'Add a new employee'}</h1>
+          <p className={cx(Theme.t_sm, Styles.form_description)}>
+            {hasData
+              ? 'Fill out the information of your new employee.'
+              : 'Edit the information of your employee.'}
+          </p>
+        </div>
+      </Form.Header>
+      <Form.Body>
         <InputText
           ref={refName}
           label="Name"
@@ -102,19 +109,21 @@ const EmployeeForm = ({ uid }) => {
           defaultValue={data.grossSalary}
           onChange={e => handleUpdate('grossSalary', e.target.value)}
         />
-      </div>
-      <div>
+      </Form.Body>
+      <Form.Footer>
         {formMsg.msg && (
-          <p aria-live="polite" className={formMsg.type}>
+          <p aria-live="polite" className={cx(Styles.form_msg, Styles[formMsg.type])}>
             {formMsg.msg}
           </p>
         )}
-        <Button type="button" onClick={handleCancel}>
-          Cancel
-        </Button>
-        <Button type="submit">{hasData ? 'Save' : 'Add employee'}</Button>
-      </div>
-    </form>
+        <div className={Styles.buttons}>
+          <Button type="button" variant="light" onClick={handleCancel}>
+            Cancel
+          </Button>
+          <Button type="submit">{hasData ? 'Save' : 'Add employee'}</Button>
+        </div>
+      </Form.Footer>
+    </Form>
   )
 
   function handleUpdate(inputName, value) {
@@ -122,13 +131,13 @@ const EmployeeForm = ({ uid }) => {
   }
 
   function handleCancel(e) {
-    // TODO - confirm if you really want to cancel an ongoig form.
-    // if form has content, confirm if you really want to cancel an ongoig form.
+    // TODO - if form has changed content, confirm if
+    // you really want to cancel an ongoig form.
     Router.push('/')
   }
 
   function validateForm(fieldsToValidate) {
-    // Just make it work. Later make it better:
+    // Just make it work ⏳
     const mapFields = {
       name: {
         el: refName,
@@ -140,29 +149,29 @@ const EmployeeForm = ({ uid }) => {
       birthdate: {
         el: refBirthdate,
         validator: {
-          pattern: value => !!value, // TODO right validator
-          msg: 'The birthdate should follow the pattern DD/MM/YYYY',
+          pattern: value => !!value, // TODO correct validator
+          msg: 'The birthdate is required.',
         },
       },
       jobTitle: {
         el: refJobTitle,
         validator: {
           pattern: value => !!value, // TODO right validator
-          msg: 'The job title is required',
+          msg: 'The job title is required.',
         },
       },
       country: {
         el: refCountry,
         validator: {
           pattern: value => !!value,
-          msg: 'This country is required',
+          msg: 'This country is required.',
         },
       },
       grossSalary: {
         el: refGrossSalary,
         validator: {
           pattern: value => !!value,
-          msg: 'This salary is required',
+          msg: 'This salary is required.',
         },
       },
     }
@@ -201,7 +210,8 @@ const EmployeeForm = ({ uid }) => {
       addEmployee(newData)
     }
 
-    setFormMsg({ type: 'error', msg: uid ? 'Changes saved!' : 'Employee added!' })
+    // Should we hide/update the buttons? Review/wdesigner
+    setFormMsg({ type: 'success', msg: uid ? 'Changes saved!' : 'Employee added!' })
   }
 }
 

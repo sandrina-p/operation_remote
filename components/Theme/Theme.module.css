@@ -52,11 +52,3 @@
 .c_txt_1 {
   color: var(--text_1);
 }
-
-.c_success {
-  color: var(--success); /* Personal touch */
-}
-
-.c_error {
-  color: var(--danger); /* Personal touch */
-}

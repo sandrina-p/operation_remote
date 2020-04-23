@@ -1,0 +1,18 @@
+.input {
+  width: 100%;
+  border: none;
+  border-bottom: 0.1rem solid var(--grey_0);
+  padding: 0.4rem 0 0.8rem;
+  font-size: 2rem;
+  color: var(--text_0);
+
+  &::placeholder {
+    color: var(--text_2);
+  }
+
+  &:hover,
+  &:focus {
+    border-width: 0.15rem;
+    border-color: var(--primary);
+  }
+}

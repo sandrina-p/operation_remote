@@ -1,5 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
+import Link from 'next/link'
 
 import Theme from '../Theme'
 import Styles from './Header.module.css'
@@ -11,13 +12,15 @@ const Header = () => {
   return (
     <header className={Styles.header}>
       <div className={cx(Theme.u_layout, Styles.inner)}>
-        <div className={Styles.profile}>
-          <Avatar src={user.picUrl} />
-          <div className={Styles.profile_txt}>
-            <span className={Theme.t_bold}>{user.name}</span>
-            <span className={cx(Theme.c_txt_1, Theme.t_tiny)}>{user.role}</span>
-          </div>
-        </div>
+        <Link href="#">
+          <a className={Styles.profile}>
+            <Avatar src={user.picUrl} />
+            <div className={Styles.profile_txt}>
+              <span className={Theme.t_bold}>{user.name}</span>
+              <span className={cx(Theme.c_txt_1, Theme.t_tiny)}>{user.role}</span>
+            </div>
+          </a>
+        </Link>
       </div>
     </header>
   )

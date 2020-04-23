@@ -1,15 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cx from 'classnames'
+
+import StylesShared from '../FormControls.module.css'
+import Styles from './Select.module.css'
+
 const Select = React.forwardRef(({ children, error, hint, label, ...otherProps }, ref) => {
   return (
-    <label style={{ display: 'block' }}>
-      <span>{label}</span>
-      <select ref={ref} {...otherProps}>
+    // Note: Very similar to TextInput...
+    <label className={StylesShared.field}>
+      <span className={StylesShared.label}>{label}</span>
+      <select className={Styles.select} ref={ref} {...otherProps}>
         {children}
       </select>
-      {hint && <span>{hint}</span>}
-      {error && <span>{error}</span>}
+      {hint && <span className={StylesShared.hint}>{hint}</span>}
+      {error && <span className={StylesShared.error}>{error}</span>}
     </label>
   )
 })
