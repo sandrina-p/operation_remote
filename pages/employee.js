@@ -5,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import { EmployeesContext } from '../store/employees-context'
+import countries from '../data/countries'
 
 import Theme from '../components/theme'
 import Header from '../components/header'
@@ -74,6 +75,7 @@ const EmployeeForm = ({ uid, data }) => {
           hint="First and last names"
           error={inlineErrors.name}
           placeholder="e.g. Jane Doe"
+          name="name"
           defaultValue={data.name}
           aria-required="true"
           onChange={e => handleUpdate('name', e.target.value)}
@@ -85,8 +87,9 @@ const EmployeeForm = ({ uid, data }) => {
           hint="DD/MM/YYYY"
           error={inlineErrors.birthdate}
           placeholder="e.g. 17/02/1990"
-          pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
           defaultValue={data.birthdate}
+          name="birthdate"
+          pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"
           aria-required="true"
           onChange={e => handleUpdate('birthdate', e.target.value)}
         />
@@ -97,6 +100,7 @@ const EmployeeForm = ({ uid, data }) => {
           hint="What is their role?"
           error={inlineErrors.jobTitle}
           placeholder="e.g. Product manger"
+          name="jobTitle"
           defaultValue={data.jobTitle}
           aria-required="true"
           onChange={e => handleUpdate('jobTitle', e.target.value)}
@@ -107,13 +111,16 @@ const EmployeeForm = ({ uid, data }) => {
           label="Country"
           hint="Where are they based?"
           error={inlineErrors.country}
+          name="country"
           defaultValue="US"
           aria-required="true"
           onChange={e => handleUpdate('country', e.target.value)}
         >
-          <option value="IS">Iceland</option>
-          <option value="PT">Portugal</option>
-          <option value="US">USA</option>
+          {Object.keys(countries).map(code => (
+            <option value={code} key={code}>
+              {countries[code]}
+            </option>
+          ))}
         </Select>
 
         <InputText
@@ -123,13 +130,14 @@ const EmployeeForm = ({ uid, data }) => {
           error={inlineErrors.grossSalary}
           placeholder=" e.g. 500000"
           defaultValue={data.grossSalary}
+          name="grossSalary"
           inputMode="numeric"
           pattern="[0-9]*"
           aria-required="true"
           onChange={e => handleUpdate('grossSalary', e.target.value)}
         />
       </Form.Body>
-      <Form.Footer>
+      <Form.Footer data-test="formFooter">
         {formMsg.msg && (
           <p
             aria-live="polite"
@@ -149,6 +157,7 @@ const EmployeeForm = ({ uid, data }) => {
   )
 
   function handleUpdate(inputName, value) {
+    console.log('::', inputName, value)
     setNewData(data => ({ ...data, [inputName]: value }))
   }
 
@@ -231,7 +240,7 @@ const EmployeeForm = ({ uid, data }) => {
     }
 
     if (hasData) {
-      updateEmployee(hasData, newData)
+      updateEmployee(uid, newData)
     } else {
       addEmployee(newData)
     }
